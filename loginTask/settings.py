@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tasks.apps.TasksConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -84,15 +85,10 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-'''
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '/tasks'
+LOGOUT_REDIRECT_URL = '/accounts/login'
+AUTH_USER_MODEL = 'accounts.CustomUser'
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
